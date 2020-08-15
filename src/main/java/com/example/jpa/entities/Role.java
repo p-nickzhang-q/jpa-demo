@@ -22,12 +22,12 @@ public class Role {
     private Long roleId;
     private String roleName;
 
-    //    @ManyToMany(targetEntity = User.class)
-//    @JoinTable(name = "jpa_user_role",
-//            /*joinColumns是当前表对应中间表的外键*/
-//            joinColumns = {@JoinColumn(name = "jpaRoleId", referencedColumnName = "roleId")},
-//            /*inverseJoinColumns是对方表对应中间表的外键*/
-//            inverseJoinColumns = {@JoinColumn(name = "jpaUserId", referencedColumnName = "userId")})
+    /**
+     * @ManyToMany(targetEntity = User.class)
+     * @JoinTable(name = "jpa_user_role",
+     * joinColumns = {@JoinColumn(name = "jpaRoleId", referencedColumnName = "roleId")},
+     * inverseJoinColumns = {@JoinColumn(name = "jpaUserId", referencedColumnName = "userId")})
+     */
     @ManyToMany(mappedBy = "roles")
     private Set<User> users = new HashSet<>();
 
