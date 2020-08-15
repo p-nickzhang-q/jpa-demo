@@ -11,8 +11,9 @@ import java.util.Optional;
 
 @Repository
 public interface CustomerRepository extends BaseRepository<Customer, Long> {
-//    @Query("from Customer where address = :address")
-
+    /**
+     * @Query("from Customer where address = :address")
+     */
     public Optional<Customer> findByAddress(String address);
 
     @Transactional

@@ -1,6 +1,10 @@
 package com.example.jpa.entities;
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -32,4 +36,16 @@ public class User {
             /*inverseJoinColumns是对方表对应中间表的外键*/
             inverseJoinColumns = {@JoinColumn(name = "jpaRoleId", referencedColumnName = "roleId")})
     private Set<Role> roles = new HashSet<>();
+
+    @CreatedBy
+    private Long createBy;
+
+    @CreatedDate
+    private Long createTime;
+
+    @LastModifiedBy
+    private Long updateBy;
+
+    @LastModifiedDate
+    private Long updateTime;
 }
